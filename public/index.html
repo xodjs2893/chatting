@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatting</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+        integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
+
 </head>
+
 <body>
-    <h1>My chatting App</h1>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button id="btn1" class="btn"><i class="fas fa-angle-left"></i></button>
+            <button id="btn2" class="btn"><img src="images/img.jpg" width="50" height="50" alt="이미지"></button>
+            <button id="btn3" class="btn"><i class="fas fa-video"></i></button>
+            <button id="btn4" class="btn"><i class="fas fa-phone-alt"></i></button>
+            <button id="btn5" class="btn"><i class="fas fa-ellipsis-v"></i></button>
+        </div>
+        <div class="chatbox">
+            <div class="chat1 chat">
+              
+               <span>하이</span>
+            </div>
+            
+            <div class="chat2 chat">
+                잘자
+
+            </div>
+        </div>
+
+        <div class="text-box">
+            
+            <textarea class="message" name="대화내용 입력하세요"></textarea>
+            <button id="send">전송</button>
+
+        </div>
+    </div>
+    <script>
+        //socket io 연결
+        const socket = io();
+        const sendButton = document.querySelector("#send");
+        const send = document.querySelector(".message");
+        sendButton.addEventListener('click', () => {
+            // console.log(send.value);
+            // 서버로 보내는 역활
+            socket.emit('chatting', send.value);
+
+        })
+        sendButton.addEventListener('keydown', (e) => {
+            console.log(e);
+            if (e.key === 'Enter') {
+                const send = document.querySelector(".message");
+                console.log(send.value);
+                // 서버로 보내는 역활
+                socket.emit('chatting', send.value);
+            }
+
+
+        })
+
+
+
+
+
+        // 서버에서 받는역활
+        socket.on('chatting', (msg) => {
+            $('.chatbox').append(`<div class="chat chat2">${msg}<div>`);
+            $("#send").val("")
+
+
+            //   const div = document.querySelector(".chatbox")
+            //   const li = document.createElement("li")
+            //   const text = document.createTextNode(msg);
+            //   li.appendChild(text);
+            //   li.classList.add('chat')
+            //   div.appendChild(li);
+            //   console.log(msg,'from server!!!');
+
+        });
+    </script>
 </body>
+
 </html>

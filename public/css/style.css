@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background: #eee;
+    height: 100%;
+       
+}
+.chat-container {
+    margin: 60px auto;
+    width: 400px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px 5px 5px 5px;
+    
+}
+
+.chat-header {
+    background-color:#333;
+    position: relative;
+
+    padding: 30px 8px 8px 8px;
+  }
+  #btn2{
+      border-radius: 50px;
+  }
+  #btn2>img {
+      border-radius: 50px;
+      
+
+  }
+  #btn3{
+      position: absolute;
+      right:60px;
+      bottom:10px;
+  }
+  #btn5 {
+      position: absolute;
+      right:10px;
+      bottom: 10px;
+  }
+  #btn4{
+      position: absolute;
+      right: 150px;
+      bottom: 10px;
+  }
+
+  .chatbox {
+    height: 600px;
+    background-color: #d7e4f2;
+    padding: 10px;
+    position: relative;
+    overflow-y: scroll;
+  }
+  .chat{
+      margin: 5px 0;
+      display: inline-block;
+      max-width: 300px;
+      font-size: 14px;
+      position: relative;
+      left: 50px;
+      top: 10px;
+      border: 1px solid black;
+  }
+  
+ 
+  .chat1{
+    background-color: white;
+    border-radius: 15px;
+    padding: 7px 15px 7px 15px;
+    float: left;
+    clear: both;
+  }
+  
+  .chat2{
+    background-color: #fff46d;
+    border-radius: 15px;
+    padding: 7px 15px 7px 15px;
+    float: right;
+    clear: both;
+  }
+  .text-box{
+    background-color: #fafafa;
+    padding: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-box> i{
+      
+      display: flex;
+      justify-content: start;
+      left: 100px;
+
+      
+  }
+  .text-box textarea {
+    height: 60px;
+    float: left;
+    width: calc(100% - 70px);
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 0.5px #d7d7d7;
+    padding: 10px;
+    font-size: 14px;
+  }
+#send{
+    background-color: #4a90e2;
+    width: 60px;
+    height: 60px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    float: left;
+}
